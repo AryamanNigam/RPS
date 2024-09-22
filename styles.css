@@ -50,3 +50,9 @@ img{
 button{
     border-radius: 50px;
 }
+
+.Score{
+    flex-grow: 3;
+    display: flex;
+    background-color: rgb(152, 11, 11);
+}

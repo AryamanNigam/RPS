@@ -1,8 +1,5 @@
-const button = document.querySelector("button");
-
-
 function getComputerChoice(){
-    let choice = getRandom(3);
+    let choice = Math.floor(Math.random() * 3);
     if(choice == 0){
         return "rock";
     }
@@ -13,6 +10,9 @@ function getComputerChoice(){
         return "scissors";
     }
 }
+
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound(computerChoice, humanChoice){
     if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "SCISSORS"){
@@ -50,33 +50,27 @@ function playRound(computerChoice, humanChoice){
     }
 }
 
-function getHumanChoice(){
-    let hc = prompt("What is your choice");
-    return hc;
-}
-
-button.addEventListener("click", () =>
-    playRound(getComputerChoice(), getHumanChoice());
-)
+const b1 = document.querySelector("#rock");
+const b2 = document.querySelector("#paper");
+const b3 = document.querySelector("#scissors");
 
 
-for(let i = 0; i < 5; i++){
+
+b1.addEventListener("click", () => {
+    let humanChoice = "ROCK";
     let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-    playRound(computerChoice, humanChoice);
-    console.log(`Computer Score = ${computerScore} and Human Score = ${humanScore}`);
-}
+    playRound(humanChoice, computerChoice);
+});
 
-if(humanScore > computerScore){
-    console.log("Congratulations, you win!");
-}
-else if(humanScore == computerScore){
-    console.log("It's a tie!");
-}
-else{
-    console.log("Sorry, you lost!");
-}
+b2.addEventListener("click", () => {
+    let humanChoice = "PAPER";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+})
 
+b3.addEventListener("click", () => {
+    let humanChoice = "SCISSORS";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+})
 
-
-playGame();
