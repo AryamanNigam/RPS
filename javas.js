@@ -15,38 +15,53 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(computerChoice, humanChoice){
+    const m = document.querySelector("#moves-list")
+    const moveMade = document.createElement("div");
+
+
+    const cs = document.querySelector("#CS");
+    const hs = document.querySelector("#HS");
+
+    
     if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "SCISSORS"){
-        console.log("You Lose! Rock beats Scissors");
+        moveMade.textContent = "You Lose! Rock beats Scissors";
+        m.appendChild(moveMade);
         computerScore++;
     }
 
     else if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "PAPER"){
-        console.log("You win! Paper beats Rock");
+        moveMade.textContent = "You win! Paper beats Rock";
+        m.appendChild(moveMade);
         humanScore++;
     }
 
     else if(computerChoice.toUpperCase() == "PAPER" && humanChoice.toUpperCase() == "ROCK"){
-        console.log("You lose! Paper beats Rock");
+        moveMade.textContent = "You lose! Paper beats Rock";
+        m.appendChild(moveMade);
         computerScore++;
     }
 
     else if(computerChoice.toUpperCase() == "PAPER" && humanChoice.toUpperCase() == "SCISSORS"){
-        console.log("You win! Scissors beats Paper");
+        moveMade.textContent = "You win! Scissors beats Paper"
+        m.appendChild(moveMade);
         humanScore++;
     }
 
     else if(computerChoice.toUpperCase() == "SCISSORS" && humanChoice.toUpperCase() == "PAPER"){
-        console.log("You lose! Scissors beats Paper");
+        moveMade.textContent = "You lose! Scissors beats Paper";
+        m.appendChild(moveMade);
         computerScore++;
     }
 
     else if(computerChoice.toUpperCase() == "SCISSORS" && humanChoice.toUpperCase() == "ROCK"){
-        console.log("You win! Rock beats Scissors");
+        moveMade.textContent = "You win! Rock beats Scissors";
+        m.appendChild(moveMade);
         humanScore++;
     }
 
     else if(computerChoice.toUpperCase() == humanChoice.toUpperCase()){
-        console.log("It's a tie!");
+        moveMade.textContent = "It's a tie!";
+        m.appendChild(moveMade);
     }
 }
 
@@ -54,23 +69,20 @@ const b1 = document.querySelector("#rock");
 const b2 = document.querySelector("#paper");
 const b3 = document.querySelector("#scissors");
 
-
-
 b1.addEventListener("click", () => {
     let humanChoice = "ROCK";
     let computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
+    playRound(computerChoice, humanChoice);  
 });
 
 b2.addEventListener("click", () => {
     let humanChoice = "PAPER";
     let computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
-})
+    playRound(computerChoice, humanChoice);  
+});
 
 b3.addEventListener("click", () => {
     let humanChoice = "SCISSORS";
     let computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
-})
-
+    playRound(computerChoice, humanChoice);  
+});

@@ -25,16 +25,16 @@ html, body{
     display: flex;
     flex-grow: 1;
     flex-direction: column;
+    justify-content: center;
     background-color: rgba(242, 242, 234, 0.896);
 }
 
 img{
-    height: 300px;
-    width: 300px;
+    height: 150px;
+    width: 150px;
 }
 
 .container{
-    padding-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -52,7 +52,57 @@ button{
 }
 
 .Score{
-    flex-grow: 3;
-    display: flex;
-    background-color: rgb(152, 11, 11);
+    flex-basis: 40%;
+    flex-direction: column;
+    background-color: rgb(196, 185, 219);
+    justify-content: flex-start;
 }
+
+.Score-box {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #3882f6;
+    border-radius: 10px;
+    margin: 0px 50px 0px 50px;
+    padding-bottom: 5   0px;
+    justify-content: flex-start;
+}
+
+.Sc{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    color: aliceblue;
+    font-weight: 800;
+}
+
+.sbox{
+    box-sizing: border-box;
+    border-color: black;
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 1px;
+}
+
+#s{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.moves{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin: 0px 50px 0px 50px;
+    border: 1px solid black; 
+}
+
+
+.moves-title{
+    font-size: 28px;
+    color: aliceblue;
+    font-weight: 800;
+}
+
