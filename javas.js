@@ -15,53 +15,68 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playRound(computerChoice, humanChoice){
-    const m = document.querySelector("#moves-list")
+    const m = document.querySelector("#moves-list");
     const moveMade = document.createElement("div");
 
+    const cs = document.querySelector("#CS");  
+    const hs = document.querySelector("#HS");  
 
-    const cs = document.querySelector("#CS");
-    const hs = document.querySelector("#HS");
+    if(humanScore < 5 && computerScore < 5 ){
+        if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "SCISSORS"){
+            moveMade.textContent = "You Lose! Rock beats Scissors";
+            m.appendChild(moveMade);
+            computerScore++;
+            cs.textContent = computerScore.toString();  
+        }
 
-    
-    if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "SCISSORS"){
-        moveMade.textContent = "You Lose! Rock beats Scissors";
-        m.appendChild(moveMade);
-        computerScore++;
+        else if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "PAPER"){
+            moveMade.textContent = "You win! Paper beats Rock";
+            m.appendChild(moveMade);
+            humanScore++;
+            hs.textContent = humanScore.toString(); 
+        }
+
+        else if(computerChoice.toUpperCase() == "PAPER" && humanChoice.toUpperCase() == "ROCK"){
+            moveMade.textContent = "You lose! Paper beats Rock";
+            m.appendChild(moveMade);
+            computerScore++;
+            cs.textContent = computerScore.toString();  
+        }
+
+        else if(computerChoice.toUpperCase() == "PAPER" && humanChoice.toUpperCase() == "SCISSORS"){
+            moveMade.textContent = "You win! Scissors beats Paper";
+            m.appendChild(moveMade);
+            humanScore++;
+            hs.textContent = humanScore.toString(); 
+        }
+
+        else if(computerChoice.toUpperCase() == "SCISSORS" && humanChoice.toUpperCase() == "PAPER"){
+            moveMade.textContent = "You lose! Scissors beats Paper";
+            m.appendChild(moveMade);
+            computerScore++;
+            cs.textContent = computerScore.toString();  
+        }
+
+        else if(computerChoice.toUpperCase() == "SCISSORS" && humanChoice.toUpperCase() == "ROCK"){
+            moveMade.textContent = "You win! Rock beats Scissors";
+            m.appendChild(moveMade);
+            humanScore++;
+            hs.textContent = humanScore.toString(); 
+        }
+
+        else if(computerChoice.toUpperCase() == humanChoice.toUpperCase()){
+            moveMade.textContent = "It's a tie!";
+            m.appendChild(moveMade);
+        }
     }
 
-    else if(computerChoice.toUpperCase() == "ROCK" && humanChoice.toUpperCase() == "PAPER"){
-        moveMade.textContent = "You win! Paper beats Rock";
-        m.appendChild(moveMade);
-        humanScore++;
-    }
-
-    else if(computerChoice.toUpperCase() == "PAPER" && humanChoice.toUpperCase() == "ROCK"){
-        moveMade.textContent = "You lose! Paper beats Rock";
-        m.appendChild(moveMade);
-        computerScore++;
-    }
-
-    else if(computerChoice.toUpperCase() == "PAPER" && humanChoice.toUpperCase() == "SCISSORS"){
-        moveMade.textContent = "You win! Scissors beats Paper"
-        m.appendChild(moveMade);
-        humanScore++;
-    }
-
-    else if(computerChoice.toUpperCase() == "SCISSORS" && humanChoice.toUpperCase() == "PAPER"){
-        moveMade.textContent = "You lose! Scissors beats Paper";
-        m.appendChild(moveMade);
-        computerScore++;
-    }
-
-    else if(computerChoice.toUpperCase() == "SCISSORS" && humanChoice.toUpperCase() == "ROCK"){
-        moveMade.textContent = "You win! Rock beats Scissors";
-        m.appendChild(moveMade);
-        humanScore++;
-    }
-
-    else if(computerChoice.toUpperCase() == humanChoice.toUpperCase()){
-        moveMade.textContent = "It's a tie!";
-        m.appendChild(moveMade);
+    else{
+        if(humanScore > computerScore){
+            alert("You win!");
+        }
+        else{
+            alert("You lose!");
+        }
     }
 }
 
